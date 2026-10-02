@@ -346,6 +346,19 @@ footer{padding-block:32px 56px; font-size:.85rem; color:var(--muted)}
   </div>
 
   <div class="item">
+    <h3>AI기본법 컴플라이언스 체커 — RAG Pipeline 비교</h3>
+    <p class="when">2026.09 · SK AI Leader Academy(SKALA) 최종 캡스톤 · 단독 · <a class="doc" href="https://github.com/jaehyeonSUNG2024/rag-ai-law-compliance" target="_blank" rel="noopener">GitHub</a></p>
+    <p>법무팀 없는 AI 기업이 기획 단계에서 자사 서비스의 법적 의무를 근거 조문과 함께 확인하는 RAG. 사용자는 사업 언어(“채용 솔루션”, “벌금”)로 묻는데 법은 법률 언어(“채용 판단에 활용되는 고영향 인공지능”, “과태료”)로 쓰여 있다는 것이 문제의 핵심이었다. 고정 질문 10개에 정답 조항을 라벨링하고 Baseline부터 6개 Pipeline을 같은 조건에서 Recall@4·MRR로 측정했다.</p>
+    <ul class="plain">
+      <li>Baseline(글자 수 Chunk + Similarity) Recall@4 0.611 / MRR 0.639 → <strong>Final(조 단위 + ParentDocument + BM25 Hybrid + Route) 0.722 / 0.778</strong></li>
+      <li>조 단위 Chunk는 단독 적용 시 역효과(0.611 → 0.556)였다. 긴 조문을 통째로 임베딩하면 의미가 희석된다는 것을 측정으로 확인하고 ParentDocument로 교체했다</li>
+      <li>Rewrite는 MRR을 최고치로 올렸지만 원 질의와 재작성 질의가 Top-4를 나눠 가져 Recall을 떨어뜨렸다. 지표가 오른 개선이지만 최종에서 제외했다</li>
+      <li>전 Pipeline에서 실패한 질문은 원인까지 추적했다 — 질문형 문장끼리 가깝고 선언문은 멀다는 문체 차이 문제로, 다음 개선 후보를 HyDE로 잡았다</li>
+    </ul>
+    <p style="font-size:.85rem;color:var(--muted)">사용 도구: Python, LangChain, FAISS, BM25, OpenAI API, uv</p>
+  </div>
+
+  <div class="item">
     <h3>공업탑 실시간 영상 파이프라인</h3>
     <p class="when">2024.03 – 2024.11 · 울산대학교 지능형시스템연구실 · 데이터 전송 프로세스 개발</p>
     <p>공업탑 도로의 실시간 영상과 딥러닝 분석 결과를 영국 전시장까지 송출하는 파이프라인을 구축했다. Birmingham Tech Week 2024에서 실시간 부스를 운영했고, 이 환경이 석사 연구의 기반이 되었다.</p>
