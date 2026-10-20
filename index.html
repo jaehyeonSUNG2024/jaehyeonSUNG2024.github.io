@@ -363,6 +363,102 @@ footer{padding-block:32px 56px; font-size:.85rem; color:var(--muted)}
     <h3>공업탑 실시간 영상 파이프라인</h3>
     <p class="when">2024.03 – 2024.11 · 울산대학교 지능형시스템연구실 · 데이터 전송 프로세스 개발</p>
     <p>공업탑 도로의 실시간 영상과 딥러닝 분석 결과를 영국 전시장까지 송출하는 파이프라인을 구축했다. Birmingham Tech Week 2024에서 실시간 부스를 운영했고, 이 환경이 석사 연구의 기반이 되었다.</p>
+
+    <div class="figscroll">
+    <figure>
+      <svg class="dg" viewBox="0 0 860 650" role="img" aria-label="공업탑 실시간 영상 파이프라인 구조도. 공업탑 현장에서 OAK-1 카메라로 촬영한 영상을 ODROID가 5분 단위로 저장해 SSH로 연구실 서버에 전송하고, 서버에서 수신 검증과 NAS 보관을 거친 뒤 딥러닝 검출과 추적 결과를 영국 전시장으로 송출한다">
+        <defs>
+          <marker id="pah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" class="dg-head"/>
+          </marker>
+        </defs>
+
+        <rect class="dg-box" x="16" y="40" width="828" height="136" rx="10"/>
+        <rect class="dg-chip" x="32" y="28" width="118" height="22" rx="11"/>
+        <text class="dg-chip-t" x="91" y="43" text-anchor="middle">① 공업탑 현장</text>
+        <text class="dg-s" x="162" y="43">울산 · 담당 구간</text>
+
+        <rect class="dg-node" x="40" y="72" width="146" height="60" rx="8"/>
+        <text class="dg-node-t" x="113" y="97" text-anchor="middle">OAK-1 카메라</text>
+        <text class="dg-s" x="113" y="115" text-anchor="middle">도로 영상 촬영</text>
+        <path class="dg-line" d="M186 102 L228 102" marker-end="url(#pah)"/>
+
+        <rect class="dg-node" x="228" y="72" width="170" height="60" rx="8"/>
+        <text class="dg-node-t" x="313" y="97" text-anchor="middle">ODROID</text>
+        <text class="dg-s" x="313" y="115" text-anchor="middle">5분 단위 영상 저장</text>
+        <path class="dg-line" d="M398 102 L440 102" marker-end="url(#pah)"/>
+
+        <rect class="dg-node" x="440" y="72" width="152" height="60" rx="8"/>
+        <text class="dg-node-t" x="516" y="97" text-anchor="middle">SSH 파일 송신</text>
+        <text class="dg-s" x="516" y="115" text-anchor="middle">외부 IP 네트워크</text>
+
+        <rect class="dg-pill" x="628" y="76" width="192" height="52" rx="12"/>
+        <text class="dg-pt" x="724" y="96" text-anchor="middle">보조 경로</text>
+        <text class="dg-s" x="724" y="114" text-anchor="middle">웹 스트리밍, 원격 제어</text>
+
+        <path class="dg-seg" d="M516 176 L516 214" marker-end="url(#pah)"/>
+        <text class="dg-m" x="528" y="200">영상 파일 전송</text>
+
+        <rect class="dg-box" x="16" y="226" width="828" height="258" rx="10"/>
+        <rect class="dg-chip" x="32" y="214" width="112" height="22" rx="11"/>
+        <text class="dg-chip-t" x="88" y="229" text-anchor="middle">② 연구실 서버</text>
+
+        <rect class="dg-node" x="40" y="252" width="152" height="60" rx="8"/>
+        <text class="dg-node-t" x="116" y="277" text-anchor="middle">수신, 검증</text>
+        <text class="dg-s" x="116" y="295" text-anchor="middle">SSH Client</text>
+        <path class="dg-line" d="M192 282 L234 282" marker-end="url(#pah)"/>
+
+        <rect class="dg-node" x="234" y="252" width="134" height="60" rx="8"/>
+        <text class="dg-node-t" x="301" y="287" text-anchor="middle">파일 저장</text>
+        <path class="dg-line" d="M368 282 L410 282" marker-end="url(#pah)"/>
+
+        <path class="dg-cyl" d="M410 262 a46 12 0 0 1 92 0 v40 a46 12 0 0 1 -92 0 z"/>
+        <path class="dg-cyl" d="M410 262 a46 12 0 0 0 92 0"/>
+        <text class="dg-b" x="456" y="292" text-anchor="middle">NAS</text>
+        <text class="dg-s" x="456" y="326" text-anchor="middle">장기 보관</text>
+
+        <text class="dg-s" x="548" y="268">담당 구간은 여기까지</text>
+        <text class="dg-s" x="548" y="286">수집, 전송, 수신, 보관, 송출</text>
+
+        <line class="dg-rule" x1="40" y1="348" x2="820" y2="348"/>
+        <rect class="dg-pill" x="40" y="336" width="150" height="24" rx="12"/>
+        <text class="dg-pt" x="115" y="352" text-anchor="middle">타 팀원 담당</text>
+
+        <rect class="dg-frame" x="40" y="378" width="150" height="54" rx="8"/>
+        <text class="dg-t" x="115" y="410" text-anchor="middle">객체 검출</text>
+        <path class="dg-edge" d="M190 405 L224 405" marker-end="url(#pah)"/>
+
+        <rect class="dg-frame" x="224" y="378" width="160" height="54" rx="8"/>
+        <text class="dg-t" x="304" y="410" text-anchor="middle">다중 객체 추적</text>
+        <path class="dg-edge" d="M384 405 L418 405" marker-end="url(#pah)"/>
+
+        <rect class="dg-frame" x="418" y="378" width="140" height="54" rx="8"/>
+        <text class="dg-t" x="488" y="410" text-anchor="middle">궤적 수집</text>
+        <path class="dg-edge" d="M558 405 L592 405" marker-end="url(#pah)"/>
+
+        <rect class="dg-frame" x="592" y="378" width="150" height="54" rx="8"/>
+        <text class="dg-t" x="667" y="410" text-anchor="middle">디지털 트윈</text>
+
+        <text class="dg-code" x="40" y="458">전달 데이터  위치(x, y) / 객체 ID / class / confidence / time</text>
+
+        <path class="dg-seg" d="M430 484 L430 522" marker-end="url(#pah)"/>
+        <text class="dg-m" x="442" y="508">분석 결과 송출</text>
+
+        <rect class="dg-box" x="16" y="534" width="828" height="96" rx="10"/>
+        <rect class="dg-chip" x="32" y="522" width="112" height="22" rx="11"/>
+        <text class="dg-chip-t" x="88" y="537" text-anchor="middle">③ 영국 전시장</text>
+
+        <rect class="dg-node" x="40" y="558" width="168" height="54" rx="8"/>
+        <text class="dg-node-t" x="124" y="590" text-anchor="middle">실시간 송출 수신</text>
+        <path class="dg-line" d="M208 585 L250 585" marker-end="url(#pah)"/>
+
+        <rect class="dg-panel" x="250" y="558" width="360" height="54" rx="8"/>
+        <text class="dg-b" x="430" y="580" text-anchor="middle">Birmingham Tech Week 2024</text>
+        <text class="dg-s" x="430" y="599" text-anchor="middle">실시간 부스 운영</text>
+      </svg>
+      <figcaption>수집부터 송출까지의 전송 파이프라인. OAK-1으로 촬영한 영상을 ODROID가 5분 단위로 저장해 SSH로 연구실 서버에 보내고, 서버에서 검증과 NAS 보관을 거친다. 담당 범위는 수집과 전송, 수신, 보관, 송출 구간이며 검출과 추적은 다른 팀원이 맡았다.</figcaption>
+    </figure>
+    </div>
   </div>
 
   <div class="item">
